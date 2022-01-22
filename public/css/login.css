@@ -7,7 +7,7 @@
   width: 100%;
   height: 100vh;
   font-family: sans-serif;
-  background: rgb(83, 10, 201);
+  background: rgb(255, 255, 255);
   color: #fff;
   display: flex;
   align-items: center;
@@ -17,7 +17,8 @@
 .card {
   width: 350px;
   height: 500px;
-  box-shadow: 0 0 40px 20px rgba(255, 255, 255, 0.26);
+  box-shadow: 0 0 40px 20px rgba(0, 0, 0, 0);
+  background-color: rgb(150, 7, 245);
   perspective: 1000px;
 }
 
@@ -37,7 +38,7 @@
   background-position: center;
   /* background-color: rgb(178, 189, 24); */
   background-size: cover;
-  background-image: linear-gradient(rgba(0, 0, 100, 0.8)),
+  background-image: linear gradient(rgb(250, 246, 246))
     url("../images/hero-bg.jpg");
   padding: 55px;
   box-sizing: border-box;
