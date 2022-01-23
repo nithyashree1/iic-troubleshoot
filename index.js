@@ -15,7 +15,7 @@ mongoose.connect("mongodb://localhost:27017/login-app-db", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-// mongoose.connect('mongodb+srv://nithya-user:nithya-user@cluster0.r2cay.mongodb.net/iic-event2?retryWrites=true&w=majority',{ useNewUrlParser: true,useUnifiedTopology: true});
+// mongoose.connect('mongodb+srv://nithya-user:nithya-user@cluster0.r2cay.mongodb.net/iic-event?retryWrites=true&w=majority',{ useNewUrlParser: true,useUnifiedTopology: true});
 
 
 app.use(express.static(__dirname + "./public/"));
@@ -27,6 +27,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+
 var Storage = multer.diskStorage({
   destination: function (request, file, callback) {
       callback(null, "./public/uploads/")
@@ -69,6 +70,11 @@ app.put("/event/:id", upload.single('file'),async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id)) return false;
 
   let newSolution = {
+    uname: req.body.uname,
+    email: req.body.email,
+    branch: req.body.branch,
+    semester: req.body.semester,
+    USN: req.body.usn,
     stu_file:req.file.filename
     
   }
@@ -89,6 +95,11 @@ app.get("/register", async (req, res) => {
 
 app.post("/",upload.single('file'), async (req, res) => {
   let newSolution = new Comment({
+    uname: req.body.uname,
+    email: req.body.email,
+    branch: req.body.branch,
+    semester: req.body.semester,
+    USN: req.body.usn,
     stu_file:req.file.filename
     
   });
