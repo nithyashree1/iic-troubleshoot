@@ -1,132 +1,149 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
-
-.container {
-  width: 100%;
-  height: 100vh;
-  font-family: sans-serif;
-  background: rgb(255, 255, 255);
-  color: #fff;
+section {
+  position: relative;
+  min-height: 100vh;
+  background-color: #171819;
+  padding: 20px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
 }
-
-.card {
-  width: 350px;
+section .container {
+  position: relative;
+  width: 800px;
   height: 500px;
-  box-shadow: 0 0 40px 20px rgba(0, 0, 0, 0);
-  background-color: rgb(150, 7, 245);
-  perspective: 1000px;
+  background: white;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
-
-.inner-box {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: all 1s ease-out;
-}
-
-.card-front,
-.card-back {
+section .container .user {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-position: center;
-  /* background-color: rgb(178, 189, 24); */
-  background-size: cover;
-  background-image: linear gradient(rgb(250, 246, 246))
-    url("../images/hero-bg.jpg");
-  padding: 55px;
-  box-sizing: border-box;
-  backface-visibility: hidden;
+  display: flex;
 }
-
-.card-back {
-  transform: rotateY(180deg);
+section .container .user .imgBox {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  transition: 0.5s;
 }
-
-.card-h2 {
-  font-weight: normal;
-  font-size: 24px;
-  text-align: center;
+section .container .user .imgBox img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+section .container .user .formBox {
+  position: relative;
+  width: 50%;
+  height: 100;
+  background-color: white;
+  display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  align-items: center;
+  padding: 40px;
+  transition: 0.5s;
 }
-
-.input-box {
-  width: 100%;
-  background: transparent;
-  border: 1px solid #fff;
-  margin: 5px 0;
-  height: 32px;
-  border-radius: 20px;
-  padding: 0 10px;
-  box-sizing: border-box;
-  outline: none;
+section .container .user .formBox h2 {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   text-align: center;
-  color: #fff;
-}
-
-::placeholder {
-  color: #fff;
-  font-size: 12px;
-}
-
-button {
   width: 100%;
-  background: transparent;
-  margin: 50px 0;
-  border: 1px solid #fff;
-  height: 32px;
-  font-size: 12px;
-  border-radius: 20px;
-  padding: 0 10px;
-  box-sizing: border-box;
-  outline: none;
-  color: #fff;
-  cursor: pointer;
+  margin-bottom: 10px;
+  color: gray;
 }
-
-.submit-btn {
-  position: relative;
-}
-
-.submit-btn::after {
-  content: "\27a4";
+section .container .user .formBox input {
+  width: 100%;
+  font-weight: 600;
+  background-color: #f5f5f5;
+  padding: 10px;
   color: #333;
-  line-height: 32px;
-  font-size: 17px;
-  height: 32px;
-  width: 32px;
-  border-radius: 50%;
-  background: #fff;
-  position: absolute;
-  right: -1px;
-  top: -1px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  margin: 8px 0;
+  letter-spacing: 2px;
 }
-
-span {
-  font-size: 13px;
-  margin-left: 10px;
-}
-
-.lnk {
+section .container .user .formBox form input[type="submit"] {
+  max-width: 100%;
+  background-color: #f13a11;
+  color: white;
   cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: 0.5s;
 }
-
-.card .btn .lnk {
-  margin-top: 70px;
+section .container.active .user .formBox form input[type="submit"] {
+  background-color: #e73e49;
 }
-
-.card a {
-  color: #fff;
+section .container .user .formBox form .signup {
+  position: relative;
+  margin-top: 20px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: gray;
+  text-transform: uppercase;
+}
+section .container .user .formBox form .signup a {
+  font-weight: 600;
   text-decoration: none;
-  display: block;
-  text-align: center;
-  font-size: 13px;
-  margin-top: 8px;
+  color: #f13a11;
+}
+section .container .signupBox {
+  pointer-events: none;
+}
+section .container.active .signupBox {
+  pointer-events: initial;
+}
+section .container .signupBox .formBox {
+  left: 100%;
+}
+section .container.active .signupBox .formBox {
+  left: 0;
+}
+section .container .signupBox .imgBox {
+  left: -100%;
+}
+section .container.active .signupBox .imgBox {
+  left: 0;
+}
+
+section .container .signinBox .formBox {
+  left: 0;
+}
+section .container.active .signinBox .formBox {
+  left: -100%;
+}
+section .container .signinBox .imgBox {
+  left: 0;
+}
+section .container.active .signinBox .imgBox {
+  left: 100%;
+}
+
+@media (max-width: 991px) {
+  section .container {
+    max-width: 400px;
+  }
+  section .container .imgBox {
+    display: none;
+  }
+  section .container .user .formBox {
+    width: 100%;
+  }
 }
