@@ -42,7 +42,19 @@
             <div class="col">
                 <h2 class=" " data-aos="fade-up" data-aos-delay="200">Edit your details</h2>
 
-                <form action="/event/<%= solution._id%>?_method=PUT" enctype="multipart/form-data" method="POST" class="contact-form webform">
+                <form action="/event/<%= solution._id%>?_method=PUT" enctype="multipart/form-data" method="POST" class="contact-form webform"
+                    data-aos="fade-up" data-aos-delay="400" role="form">
+                    <input type="text" class="form-control" name="uname" placeholder="Full Name"
+                    value= "<%= solution.uname%>">
+                <input type="email" class="form-control" name="email" placeholder="Email"
+                    value="<%= solution.email%>">
+
+                <input type="text" class="form-control" name="branch" placeholder="Branch"
+                    value="<%= solution.branch%>">
+                <input type="text" class="form-control" name="semester" placeholder="Semester"
+                    value= "<%= solution.semester%>">
+                <input type="text" class="form-control" name="usn" placeholder="USN" value="<%= solution.USN%>">
+
                     <div class="mb-3">
                         <label for="doc" class="form-label">Upload file</label>
                         <input class="form-control" type="file" id="doc" name="file">
