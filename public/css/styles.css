@@ -156,6 +156,37 @@ strong {
   color: var(--primary-color);
 }
 
+.custom-btn1 {
+  background: transparent;
+  border-radius: var(--border-radius-small);
+  padding: 10px 20px;
+  color: var(--white-color);
+  font-size: var(--menu-font-size);
+  font-weight: var(--font-weight-normal);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.custom-btn1:hover {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+}
+
+.custom-btn1:focus {
+  box-shadow: none;
+}
+
+.custom-btn1.bordered:hover,
+.custom-btn1.bordered:focus,
+.custom-btn1.bg-color:hover,
+.custom-btn1.bg-color:focus {
+  background: var(--primary-color);
+  border-color: transparent;
+  color: var(--white-color);
+}
+
 .bordered {
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
@@ -215,25 +246,6 @@ a:focus {
 .IIClogo {
   width: 100%;
   height: 100%;
-}
-
-/*---------------------------------------
-     MODAL              
-  -----------------------------------------*/
-
-.modal-content {
-  padding: 2rem 3rem;
-}
-
-.modal-header,
-.modal-body,
-.modal-footer {
-  border: 0;
-  padding: 0;
-}
-
-.membership-form a {
-  color: var(--primary-color);
 }
 
 /*---------------------------------------
