@@ -7,34 +7,34 @@
     <!-- <title>Login</title> -->
   </head>
   <body>
-    <div class="container">
-      <div class="card">
-        <div class="inner-box" id="card">
-          <div class="card-front">
-            <h2><center>REGISTER</center></h2>
-            <form id="reg-form">
-              <input
-                type="text"
-                autocomplete="off"
-                id="username"
-                placeholder="Username"
-                required
-                class="input-box"
-              />
-              <input
-                type="password"
-                autocomplete="off"
-                id="password"
-                placeholder="Password"
-                required
-                class="input-box"
-              />
-              <button type="submit" class="submit-btn">Register</button>
-            </form>
+    <body>
+      <section>
+      <div class="container">
+        <div class="user signinBox">
+            
+            <div class="formBox" >
+                <form action="" id="reg-form">
+                    <h2>Create an Account</h2>
+                    <input type="text" name="" placeholder="Enter Username" id="">
+                    <input type="email" name="" placeholder="Enter Email" id="">
+                    <input type="password" name="" placeholder="Enter Password" id="">
+                    <input type="password" name="" placeholder="Confirm Password" id="">
+                    <input type="submit" value="Sign Up">
+                    <a type="link" class="lnk" href="/login">
+                      <p class="signup">Don't have an Account?</p>
+                    </a>
+                </form>
+
+               
+                
+            </div>
+            <div class="imgBox">
+              <img src="images/hero-bg.jpg" alt="">
           </div>
         </div>
-      </div>
-    </div>
+        </div>
+      </section>
+
     <script>
       const form = document.getElementById("reg-form");
       form.addEventListener("submit", registerUser);
