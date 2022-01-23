@@ -26,6 +26,12 @@
 
             <a class="navbar-brand" href="/">IIC-Troubleshoot</a>
 
+            <ul>
+                <li class="nav-item">
+                    <a href="/login" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="700">Log out</a>
+                </li>
+              </ul>
+
             
 
         </div>
@@ -39,7 +45,13 @@
                   <h2 class=" " data-aos="fade-up" data-aos-delay="200">Upload your solution document</h2>
 
                   <form action="/" method="post" enctype="multipart/form-data" class="contact-form webform" data-aos="fade-up" data-aos-delay="400" role="form">
-                      
+                    <input type="text" class="form-control" name="cf-name" placeholder="Full Name">
+                    <input type="email" class="form-control" name="cf-email" placeholder="Email">
+                    
+                    <input type="text" class="form-control" name="cf-name" placeholder="Branch">
+                    <input type="text" class="form-control" name="cf-name" placeholder="Semister">
+
+                    <input type="text" class="form-control" name="cf-name" placeholder="USN">
                           
                     <div class="mb-3">
                         <label for="doc" class="form-label">Upload file</label>
