@@ -3,7 +3,7 @@ const app = express();
 const path = require("path");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const multer = require('multer');
+const multer = require("multer");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const Comment = require("./models/comment");
@@ -17,10 +17,9 @@ mongoose.connect("mongodb://localhost:27017/login-app-db", {
 });
 // mongoose.connect('mongodb+srv://nithya-user:nithya-user@cluster0.r2cay.mongodb.net/iic-event?retryWrites=true&w=majority',{ useNewUrlParser: true,useUnifiedTopology: true});
 
-
 app.use(express.static(__dirname + "./public/"));
 app.use(express.json());
-app.use('/uploads', express.static('uploads'));
+app.use("/uploads", express.static("uploads"));
 
 app.use(express.static(path.join(__dirname, "public")));
 app.set("views", path.join(__dirname, "views"));
@@ -30,18 +29,19 @@ app.use(methodOverride("_method"));
 
 var Storage = multer.diskStorage({
   destination: function (request, file, callback) {
-      callback(null, "./public/uploads/")
+    callback(null, "./public/uploads/");
   },
   filename: function (request, file, callback) {
-      // callback(null, Date.now() + file.originalname);
-      callback(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname));
-
-  }
+    // callback(null, Date.now() + file.originalname);
+    callback(
+      null,
+      file.fieldname + "_" + Date.now() + path.extname(file.originalname)
+    );
+  },
 });
 
-
 var upload = multer({
-  storage: Storage
+  storage: Storage,
 });
 
 app.get("/", async (req, res) => {
@@ -65,7 +65,7 @@ app.get("/event/:id/edit", async (req, res) => {
   const solution = await Comment.findById(id);
   res.render("comments/edit", { solution });
 });
-app.put("/event/:id", upload.single('file'),async (req, res) => {
+app.put("/event/:id", upload.single("file"), async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) return false;
 
@@ -75,9 +75,8 @@ app.put("/event/:id", upload.single('file'),async (req, res) => {
     branch: req.body.branch,
     semester: req.body.semester,
     USN: req.body.usn,
-    stu_file:req.file.filename
-    
-  }
+    stu_file: req.file.filename,
+  };
   const solution = await Comment.findByIdAndUpdate(id, newSolution, {
     runValidators: true,
     new: true,
@@ -93,15 +92,14 @@ app.get("/register", async (req, res) => {
   res.render("comments/register");
 });
 
-app.post("/",upload.single('file'), async (req, res) => {
+app.post("/", upload.single("file"), async (req, res) => {
   let newSolution = new Comment({
     uname: req.body.uname,
     email: req.body.email,
     branch: req.body.branch,
     semester: req.body.semester,
     USN: req.body.usn,
-    stu_file:req.file.filename
-    
+    stu_file: req.file.filename,
   });
   await newSolution.save();
   res.redirect(`/event/${newSolution._id}`);
@@ -122,6 +120,7 @@ app.post("/api/login", async (req, res) => {
       {
         id: user._id,
         username: user.username,
+        email: user.email,
       },
       JWT_SECRET
     );
@@ -133,7 +132,12 @@ app.post("/api/login", async (req, res) => {
 });
 
 app.post("/api/register", async (req, res) => {
-  const { username, password: plainTextPassword } = req.body;
+  const {
+    email,
+    username,
+    password: plainTextPassword,
+    confirmpassword: plainTextConfirmPassword,
+  } = req.body;
 
   if (!username || typeof username !== "string") {
     return res.json({ status: "error", error: "Invalid username" });
@@ -146,14 +150,26 @@ app.post("/api/register", async (req, res) => {
   if (plainTextPassword.length < 5) {
     return res.json({
       status: "error",
-      error: "Password too small. Should be atleast 6 characters",
+      error: "Password too small. Should be atleast 5 characters",
+    });
+  }
+  if (plainTextConfirmPassword !== plainTextPassword) {
+    return res.json({
+      status: "error",
+      error: "Password's do not match",
     });
   }
 
   const password = await bcrypt.hash(plainTextPassword, 10);
+  // const confirmpassword = await bcrypt.hash(plainTextConfirmPassword, 10);
+
+  // if (!(await bcrypt.compare(password, confirmpassword))) {
+  //   return res.json({ status: "error", error: "Password's do not match" });
+  // }
 
   try {
     const response = await User.create({
+      email,
       username,
       password,
     });

@@ -15,13 +15,13 @@
             <div class="formBox" >
                 <form action="" id="reg-form">
                     <h2>Create an Account</h2>
-                    <input type="text" name="" placeholder="Enter Username" id="">
-                    <input type="email" name="" placeholder="Enter Email" id="">
-                    <input type="password" name="" placeholder="Enter Password" id="">
-                    <input type="password" name="" placeholder="Confirm Password" id="">
+                    <input type="text" name="" placeholder="Enter Username" id="username">
+                    <input type="email" name="" placeholder="Enter Email" id="email">
+                    <input type="password" name="" placeholder="Enter Password" id="password">
+                    <input type="password" name="" placeholder="Confirm Password" id="confirmpassword">
                     <input type="submit" value="Sign Up">
                     <a type="link" class="lnk" href="/login">
-                      <p class="signup">Don't have an Account?</p>
+                      <p class="signup">Already have an Account?</p>
                     </a>
                 </form>
 
@@ -42,16 +42,19 @@
       async function registerUser(event) {
         event.preventDefault();
         const username = document.getElementById("username").value;
+        const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
-
+        const confirmpassword = document.getElementById("confirmpassword").value
         const result = await fetch("/api/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
+            email,
             username,
             password,
+            confirmpassword,
           }),
         }).then((res) => res.json());
 
