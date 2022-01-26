@@ -1,34 +1,35 @@
-const mongoose = require('mongoose');
-const Schema=mongoose.Schema
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const commentSchema=new Schema({
-    uname:{
-        type:String,
-        required:true
-    },
-    email:{
-        type:String,
-        required:true
-    },
-    branch:{
-        type:String,
-        required:true
-    },
-    semester:{
-        type:String,
-        required:true
-    },
-    USN:{
-        type:String,
-        required:true
-    },
-    stu_file:{
-        type:String,
-        required:true
-    }
-  
- 
-},{timestamps:true})
+const commentSchema = new Schema({
+  uname: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  phone: {
+    type: String,
+    required: true,
+  },
+  college: {
+    type: String,
+    require: true,
+  },
+  branch: {
+    type: String,
+    required: true,
+  },
+  question: {
+    type: String,
+    require: true,
+  },
+  solution: {
+    type: String,
+    require: true,
+  },
+});
 
-const Comment=mongoose.model('Comment',commentSchema);
-module.exports=Comment;
+module.exports = mongoose.model("Comment", commentSchema);
