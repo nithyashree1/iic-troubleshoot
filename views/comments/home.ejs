@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>IIC-Troubleshoot</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="description" content="" />
@@ -69,14 +69,11 @@
               <a href="#schedule" class="nav-link smoothScroll">Timer</a>
             </li>
 
-            <li class="nav-item">
-              <a href="#enter" class="nav-link smoothScroll">Enter the Event</a>
-            </li>
             
           </ul>
           <ul>
             <li class="nav-item">
-                <a href="/login" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="700">Log in</a>
+                <a href="#enter" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="700">Enter the event</a>
             </li>
           </ul>
 
@@ -109,11 +106,11 @@
               </h1>
 
               <a
-                href="#about"
+                href="#event"
                 class="btn custom-btn bordered mt-3"
                 data-aos="fade-up"
                 data-aos-delay="700"
-                >Log in</a
+                >Enter the event</a
               >
             </div>
           </div>
@@ -216,6 +213,79 @@
               eaque nihil ullam omnis officia id dolorum? Alias, tempore
               possimus.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--form-->
+    <section class="contact section" id="enter">
+      <div class="container">
+        <div class="col">
+          <div class="">
+            <h2 class=" " data-aos="fade-up" data-aos-delay="200">
+              Upload your solution document
+            </h2>
+
+            <form
+              action="/"
+              method="post"
+              enctype="multipart/form-data"
+              class="contact-form webform"
+              data-aos="fade-up"
+              data-aos-delay="400"
+              role="form"
+            >
+              <input
+                type="text"
+                class="form-control"
+                name="name"
+                placeholder="Full Name"
+              />
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                placeholder="Email"
+              />
+              <input
+                type="number"
+                class="form-control"
+                name="phone"
+                placeholder="Phone Number"
+              />
+
+              <input
+                type="text"
+                class="form-control"
+                name="college"
+                placeholder="Enter the full name of your College"
+              />
+
+              <input
+                type="text"
+                class="form-control"
+                name="branch"
+                placeholder="Branch"
+              />
+              <input
+                type="text"
+                class="form-control"
+                name="question"
+                placeholder="Question Number"
+              />
+
+              <label for="troubleshoot">
+                <h6>What is wrong with our solution?</h6>
+              </label>
+              <textarea 
+              class="form-control" 
+              id="troubleshoot" 
+              rows="5" 
+              name="solution" 
+              placeholder="Add your solution here"></textarea>
+              <button type="submit" class="btn-success">Submit</button>
+            </form>
           </div>
         </div>
       </div>
@@ -326,31 +396,6 @@
         </div>
       </div>
     </section>
-
- <!-- Submit -->
- <section class="contact section" id="enter">
-  <div class="container">
-       <div class="col">
-
-            <div class="">
-                <h2 class=" " data-aos="fade-up" data-aos-delay="200">You will have to login to enter the contest!</h2>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ratione eligendi exercitationem. 
-                  Alias eum, minus provident harum illum est doloribus sapiente, 
-                  repudiandae culpa exercitationem, quae earum quidem aperiam ipsam velit. 
-                </p>
-                 <a
-                  href="/login"
-                  class="btn custom-btn1 bordered mt-3"
-                  data-aos="fade-up"
-                  data-aos-delay="700"
-                  >Log in</a>
-                   
-                    
-            </div>
-        </div>               
-  </div>
-</section>
 
 
     <!-- FOOTER -->
