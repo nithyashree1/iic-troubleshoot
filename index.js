@@ -51,5 +51,5 @@ app.post("/", function (req, res) {
     solution: req.body.solution,
   });
   newUser.save();
-  res.redirect("/");
+  res.render("comments/thankyou");
 });
