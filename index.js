@@ -7,7 +7,6 @@ const multer = require("multer");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const Comment = require("./models/comment");
-const User = require("./models/user");
 const JWT_SECRET =
   "sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk";
 
