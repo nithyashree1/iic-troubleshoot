@@ -36,7 +36,7 @@ app.get("/event", async (req, res) => {
   res.render("comments/event");
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("Server up at 3000");
 });
 
