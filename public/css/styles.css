@@ -437,6 +437,9 @@ a:focus {
 .janEvent-write {
   padding-top: 0.5rem;
 }
+.janEvent-write-ques{
+  font-size:1.4rem;
+}
 
 .janEvent-working-hours {
   border-left: 2px solid;
